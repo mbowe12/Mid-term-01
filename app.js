@@ -12,6 +12,18 @@ const app = createApp({
       { id: 7, content: 'Card 7' },
       { id: 8, content: 'Card 8' },
     ]);
+
+    // Shuffle function
+    function shuffle(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+    }
+
+    // Shuffle cards on setup
+    shuffle(cards.value);
+
     const acceptedCards = ref([]);
     const showFortune = ref(false);
     const fortunes = ref({}); // To hold fortunes from JSON
