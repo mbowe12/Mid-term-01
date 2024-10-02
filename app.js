@@ -41,7 +41,7 @@ const app = createApp({
 
     function readFortune() {
       if (acceptedCards.value.length < 3) return "Not enough cards accepted.";
-      const key = acceptedCards.value.slice(-3).map(card => card.id).join('-');
+      const key = acceptedCards.value.slice(-3).map(card => card.id).sort((a, b) => a - b).join('-');
       return fortunes.value[key] || "No fortune found for these cards.";
     }
 
@@ -132,6 +132,13 @@ const app = createApp({
       }
     }
 
+    function restartGame() {
+      acceptedCards.value = [];
+      showFortune.value = false;
+      currentCardIndex.value = 0;
+      shuffle(cards.value); // Shuffle cards again
+    }
+
     return {
       cards,
       acceptedCards,
@@ -139,6 +146,7 @@ const app = createApp({
       showFortune,
       readFortune,
       setupInteract,
+      restartGame,
     };
   },
   mounted() {

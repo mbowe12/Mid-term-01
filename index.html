@@ -26,6 +26,12 @@
         <div v-if="showFortune" class="fortune-container">
             <h2>Your Fortune</h2>
             <p>{{ readFortune() }}</p>
+
+        <div id="chosen-cards">
+            <img v-for="card in showChosenCards" :src="'assets/' + card.image" class="chosen-card-image" />
+        </div>
+
+            <button @click="restartGame" class="btn btn-primary mt-3">Get another fortune</button>
         </div>
     </div>
 
