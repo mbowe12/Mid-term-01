@@ -5,9 +5,8 @@ body {
 
 .deck {
   position: relative;
-  width: 300px; /* Adjust width */
-  height: 450px; /* Adjust height */
-  margin: 0 auto;
+  width: 300px;
+  height: 450px;
 }
 
 .card {
@@ -24,6 +23,13 @@ body {
   justify-content: center;
   touch-action: none; /* Prevents default touch actions */
   user-select: none; /* Prevents text selection */
+}
+
+.card img {
+  width: auto;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 1rem;
 }
 
 .card.accepting,

@@ -2,16 +2,6 @@ const { createApp, ref, computed } = Vue;
 
 const app = createApp({
   setup() {
-    // const cards = ref([
-    //   { id: 1, content: 'Card 1', image: 'assets/card-1.png' },
-    //   { id: 2, content: 'Card 2', image: 'assets/card-2.png' },
-    //   { id: 3, content: 'Card 3', image: 'assets/card-3.png' },
-    //   { id: 4, content: 'Card 4', image: 'assets/card-4.png' },
-    //   { id: 5, content: 'Card 5', image: 'assets/card-5.png' },
-    //   { id: 6, content: 'Card 6', image: 'assets/card-6.png' },
-    //   { id: 7, content: 'Card 7', image: 'assets/card-7.png' },
-    //   { id: 8, content: 'Card 8', image: 'assets/card-8.png' },
-    // ]);
     const cards = ref([
       { id: 1, image: 'assets/card-1.png' },
       { id: 2, image: 'assets/card-2.png' },
@@ -48,7 +38,10 @@ const app = createApp({
       });
 
     const currentCardIndex = ref(0);
-    const currentCard = computed(() => cards.value[currentCardIndex.value]);
+    const currentCard = computed(() => ({
+      ...cards.value[currentCardIndex.value],
+      displayImage: cardBackImage
+    }));
     const isLastCard = computed(() => currentCardIndex.value === cards.value.length - 1);
 
     function readFortune() {
@@ -163,6 +156,7 @@ const app = createApp({
       restartGame,
       showChosenCards,
       cardBackImage,
+      currentCard,
     };
   },
   mounted() {

@@ -18,6 +18,7 @@
             <div class="card-wrapper" v-for="(card, index) in cards" :key="card.id">
                 <div class="card" :style="{ zIndex: cards.length - index }">
                     <div class="card-body">
+                        <img :src="cardBackImage" alt="Card back" class="card-image">
                         <h5 class="card-title">{{ card.content }}</h5>
                     </div>
                 </div>
