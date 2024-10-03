@@ -12,17 +12,16 @@ body {
 
 .card {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  width: 200px;
+  height: 300px;
   cursor: move;
-  transition: transform 0.3s, opacity 0.5s ease; /* Smooth transition for opacity */
+  transition: transform 0.3s;
   background-color: #f8f9fa;
   border: 1px solid #dee2e6;
-  border-radius: 1.5rem;
+  border-radius: 1.25rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   touch-action: none; /* Prevents default touch actions */
   user-select: none; /* Prevents text selection */
 }
@@ -40,6 +39,7 @@ body {
 
 .card.fade-out {
   opacity: 0;
+  transition: opacity 0.3s;
 }
 
 .card-container {
@@ -67,7 +67,7 @@ body {
 
 /* Chosen card indicator */
 .chosen {
-  background-color: #ff5722;
+  background-color: #ff5722; /* Change color for chosen card */
 }
 
 .chosen-cards {
@@ -93,6 +93,7 @@ body {
     opacity: 1;
     background-color: #4caf50;
   }
+
   to {
     opacity: 0;
     background-color: #4caf50;
@@ -105,6 +106,7 @@ body {
     opacity: 1;
     background-color: #f44336;
   }
+
   to {
     opacity: 0;
     background-color: #f44336;
@@ -161,53 +163,28 @@ body {
   transition: transform 0.3s ease-out;
 }
 
+.card {
+  width: 100%;
+  height: 100%;
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 1.25rem;
+  cursor: move;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.5s ease; /* Smooth transition for opacity */
+}
+
+.card-body {
+  text-align: center;
+  padding: 1rem;
+}
+
 .fortune-container {
   display: flex;
   align-items: center;
   flex-direction: column;
   text-align: center;
-  margin-top: 20px;
-  font-size: 1.2em;
-  font-weight: bold;
-}
-
-/* Chosen cards fan out effect */
-#chosen-cards {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-#chosen-cards img {
-  transform-origin: bottom center;
-  margin: 0 10px;
-}
-
-#chosen-cards img:nth-child(1) {
-  transform: rotate(-10deg);
-}
-
-#chosen-cards img:nth-child(2) {
-  transform: rotate(0deg);
-}
-
-#chosen-cards img:nth-child(3) {
-  transform: rotate(10deg);
-}
-
-.card-image {
-  width: 100%;
-  height: auto;
-}
-
-.chosen-card-image {
-  width: 150px;
-  height: 225px;
-  background-color: #4caf50;
-  color: white;
-  font-size: 32px;
-  font-weight: bold;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
