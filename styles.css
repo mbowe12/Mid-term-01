@@ -187,4 +187,44 @@ body {
   align-items: center;
   flex-direction: column;
   text-align: center;
+  margin-top: 20px;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+/* Chosen cards fan out effect */
+#chosen-cards {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+#chosen-cards img {
+  transform-origin: bottom center;
+  margin: 0 10px;
+}
+
+#chosen-cards img:nth-child(1) {
+  transform: rotate(-10deg);
+}
+#chosen-cards img:nth-child(2) {
+  transform: rotate(0deg);
+}
+#chosen-cards img:nth-child(3) {
+  transform: rotate(10deg);
+}
+.card-image {
+  width: 100%;
+  height: auto;
+}
+.chosen-card-image {
+  width: 150px;
+  height: 225px;
+  border-radius: 1rem;
+  background-color: #4caf50;
+  color: white;
+  font-size: 32px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
