@@ -103,13 +103,13 @@ const app = createApp({
       target.style.opacity = '0'; // Fade out
 
       if (acceptedCards.value.length >= 3) {
-        showFortune.value = true; // Show fortune immediately
-        return; // Stop further processing
+        showFortune.value = true; // show fortune immediately
+        return; // stop here
       }
 
       setTimeout(() => {
         nextCard();
-      }, 500); // Wait for fade out before moving to next card
+      }, 500); // wait for fade out before moving to next card
     }
 
     function rejectCard(target) {
@@ -117,7 +117,7 @@ const app = createApp({
       target.style.opacity = '0'; // Fade out
       setTimeout(() => {
         nextCard();
-      }, 500); // Wait for fade out before moving to next card
+      }, 500); // wait for fade out before moving to next card
     }
 
     function nextCard() {
@@ -134,8 +134,8 @@ const app = createApp({
         target.style.transform = 'translate(0px, 0px) rotate(0deg)';
         target.setAttribute('data-x', 0);
         target.setAttribute('data-y', 0);
-        target.style.opacity = '1'; // Reset opacity
-        target.style.backgroundColor = ''; // Reset color
+        target.style.opacity = '1'; // reset opacity
+        target.style.backgroundColor = ''; // reset color
       }
     }
 
@@ -143,7 +143,7 @@ const app = createApp({
       acceptedCards.value = [];
       showFortune.value = false;
       currentCardIndex.value = 0;
-      shuffle(cards.value); // Shuffle cards again
+      shuffle(cards.value); // shuffle cards again
     }
 
     return {
