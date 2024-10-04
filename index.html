@@ -12,8 +12,14 @@
 </head>
 
 <body>
-    <div id="intro-container"></div>
-    <div id="app" class="container" style="display: none;">
+    <div id="intro-container" class="intro-container">
+        <img src="assets/Intro-Image.gif" class="background-image" alt="Background">
+        <div class="speech-bubble-container">
+            <div id="typed-output" class="typed-text-box"></div>
+            <button id="start-button" class="button start-button">Start Drawing Cards</button>
+        </div>
+    </div>
+    <div id="app" style="display: none;">
         <div v-if="!showFortune" class="card-stack">
             <div class="card-wrapper" v-for="(card, index) in cards" :key="card.id">
                 <div class="card" :style="{ zIndex: cards.length - index }">
@@ -34,7 +40,9 @@
                 <img v-for="card in showChosenCards" :src="card.image" class="chosen-card-image" />
             </div>
 
-            <button @click="restartGame" class="button">Find another fortune</button>
+            <div class="restart-button-container">
+                <button @click="restartGame" class="button">Find another fortune</button>
+            </div>
         </div>
     </div>
 

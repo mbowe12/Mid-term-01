@@ -1,17 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const introContainer = document.getElementById('intro-container');
-    introContainer.classList.add('intro-container');
-
-    // add background image
-    const backgroundImage = document.createElement('img');
-    backgroundImage.src = 'assets/Intro-Image.gif';
-    backgroundImage.classList.add('background-image');
-    introContainer.appendChild(backgroundImage);
-
-    const typedElement = document.createElement('div');
-    typedElement.id = 'typed-output';
-    typedElement.classList.add('typed-text-box');
-    introContainer.appendChild(typedElement);
+    const typedElement = document.getElementById('typed-output');
+    const startButton = document.getElementById('start-button');
 
     const messages = [
         "Hello... Welcome... You come seeking a fortune... Yes?",
@@ -24,14 +14,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const villagerSound = new Audio('assets/VillagerSpeech.mp3');
 
     function playVillagerSound() {
-        villagerSound.play();
-        console.log('Attempting to play sound');
-        villagerSound.currentTime = 0;
         villagerSound.play().catch(e => console.error('Error playing sound:', e));
     }
 
     function pauseVillagerSound() {
-        console.log('Pausing sound');
         villagerSound.pause();
     }
 
@@ -43,33 +29,33 @@ document.addEventListener('DOMContentLoaded', () => {
                 backSpeed: 60,
                 fadeOut: true,
                 showCursor: false,
-                onBegin: (self) => {
-                    playVillagerSound();
-                },
+                onBegin: playVillagerSound,
                 onComplete: (self) => {
                     pauseVillagerSound();
                     setTimeout(() => {
                         self.destroy();
                         currentMessageIndex++;
-                        typeNextMessage();
+                        if (currentMessageIndex < messages.length) {
+                            typeNextMessage();
+                        } else {
+                            showStartButton();
+                        }
                     }, 1400);
                 }
             });
-        } else {
-            showStartButton();
         }
     }
 
     function showStartButton() {
-        const startButton = document.createElement('button');
-        startButton.textContent = 'Start Drawing Cards';
-        startButton.classList.add('button', 'mt-3');
+        startButton.classList.add('visible');
+        setTimeout(() => {
+            startButton.style.opacity = '1';
+        }, 50); // Small delay to ensure the transition works
         startButton.addEventListener('click', () => {
             introContainer.style.display = 'none';
-            document.getElementById('app').style.display = 'block';
+            document.getElementById('app').style.display = 'flex';
             document.dispatchEvent(new Event('startCardGame'));
         });
-        introContainer.appendChild(startButton);
     }
 
     typeNextMessage();
