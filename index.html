@@ -5,15 +5,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>10-Bit Tarot</title>
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
-    <!-- Custom CSS -->
+    <!--  CSS -->
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-
-    <div id="app" class="container">
+    <div id="intro-container"></div>
+    <div id="app" class="container" style="display: none;">
         <div v-if="!showFortune" class="card-stack">
             <div class="card-wrapper" v-for="(card, index) in cards" :key="card.id">
                 <div class="card" :style="{ zIndex: cards.length - index }">
@@ -25,24 +25,27 @@
             </div>
         </div>
         <div v-if="showFortune" class="fortune-container">
-            <h2>Your Fortune</h2>
-            <p>{{ readFortune() }}</p>
+            <div class="fortune-text">
+                <h2>Your Fortune</h2>
+                <p>{{ readFortune() }}</p>
+            </div>
 
             <div id="chosen-cards">
                 <img v-for="card in showChosenCards" :src="card.image" class="chosen-card-image" />
             </div>
 
-            <button @click="restartGame" class="btn btn-primary mt-3">Get another fortune</button>
+            <button @click="restartGame" class="button">Find another fortune</button>
         </div>
     </div>
 
-    <!-- jQuery and Bootstrap Bundle (includes Popper) -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
     <!-- Vue.js -->
     <script src="https://cdn.jsdelivr.net/npm/vue@3.2.31/dist/vue.global.js"></script>
     <!-- Interact.js -->
     <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
+    <!-- Typed.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.6/typed.min.js"></script>
+    <!-- Intro JS -->
+    <script src="intro.js"></script>
     <!-- Custom JS -->
     <script src="app.js"></script>
 </body>

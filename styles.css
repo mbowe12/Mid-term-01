@@ -1,8 +1,11 @@
+/* overall styles */
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Kiwi Maru", serif;
   text-align: center;
+  background-color: #121212;
 }
 
+/* card deck setup */
 .deck {
   position: relative;
   width: 300px;
@@ -21,8 +24,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  touch-action: none; /* Prevents default touch actions */
-  user-select: none; /* Prevents text selection */
+  touch-action: none;
+  user-select: none;
 }
 
 .card img {
@@ -32,6 +35,7 @@ body {
   border-radius: 1rem;
 }
 
+/* card interaction styles */
 .card.accepting,
 .card.rejecting {
   transform: rotate(5deg);
@@ -48,6 +52,7 @@ body {
   transition: opacity 0.3s;
 }
 
+/* card layout and positioning */
 .card-container {
   position: relative;
   height: 300px;
@@ -66,14 +71,14 @@ body {
   margin: 20px 0;
 }
 
-/* Stacking cards vertically with no overlap */
+/* stacking cards */
 .card + .card {
   margin-top: 18px;
 }
 
-/* Chosen card indicator */
+/* chosen card stuff */
 .chosen {
-  background-color: #ff5722; /* Change color for chosen card */
+  background-color: #ff5722; /* reject color */
 }
 
 .chosen-cards {
@@ -94,6 +99,7 @@ body {
   align-items: center;
 }
 
+/* animations */
 @keyframes fadeOutGreen {
   from {
     opacity: 1;
@@ -128,6 +134,7 @@ body {
   animation: fadeOutRed 1s ease-out forwards;
 }
 
+/* card approval/rejection styles */
 .card-approved {
   background-color: #4caf50;
 }
@@ -136,10 +143,12 @@ body {
   background-color: #f44336;
 }
 
+/* fortune telling styles */
 .fortune {
   margin-top: 20px;
   font-size: 1.2em;
   font-weight: bold;
+  color: whitesmoke;
 }
 
 .card-body {
@@ -147,10 +156,11 @@ body {
   padding: 1rem;
 }
 
+/* layout and container styles */
 .container {
   display: flex;
   justify-content: center;
-  align-items: center;
+  padding-top: 10vh;
   min-height: 100vh;
   min-width: 100vw;
   overflow: hidden;
@@ -158,8 +168,8 @@ body {
 
 .card-stack {
   position: relative;
-  width: 240px; /* Increased width */
-  height: 360px; /* Increased height */
+  width: 240px;
+  height: 360px;
 }
 
 .card-wrapper {
@@ -180,7 +190,7 @@ body {
   align-items: center;
   justify-content: center;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: opacity 0.5s ease; /* Smooth transition for opacity */
+  transition: opacity 0.5s ease; /* smooth transitions */
 }
 
 .card-body {
@@ -189,15 +199,31 @@ body {
 }
 
 .fortune-container {
-  display: flex;
+  margin: 10px;
   align-items: center;
-  flex-direction: column;
-  text-align: center;
-  margin-top: 20px;
-  font-size: 1.2em;
-  font-weight: bold;
 }
-/* Chosen cards fan out effect */
+
+.fortune-text {
+  box-sizing: border-box;
+  background-image: url("assets/SpeechBubbleDark.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 90%;
+  padding: 3rem 5rem 2rem 5rem;
+  margin: 0 auto;
+  display: flex;
+  color: whitesmoke;
+  font-size: 32px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  border-radius: 10px;
+  font-size: 24px;
+}
+
+/* chosen cards fan out */
 #chosen-cards {
   display: flex;
   justify-content: center;
@@ -218,6 +244,8 @@ body {
 #chosen-cards img:nth-child(3) {
   transform: rotate(10deg);
 }
+
+/* image styles */
 .card-image {
   width: 100%;
   height: auto;
@@ -233,4 +261,55 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/* intro styles */
+.intro-container {
+  background-image: url("assets/SpeechBubbleDark.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 80%;
+  height: 300px;
+  margin: 50px auto;
+  display: flex;
+  color: whitesmoke;
+  font-size: 32px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* button styles */
+.button {
+  background-color: #4fc3f7;
+  color: white;
+  font-size: 24px;
+  padding: 15px 40px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border-radius: 25px;
+  margin: 2rem 0;
+}
+
+/* button hover */
+.button:hover {
+  background-color: #29b6f6;
+}
+
+/* intro bg image */
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: -1;
+}
+
+.typed-text-box {
+  position: relative;
+  z-index: 1;
+  max-width: 500px;
+  justify-content: center;
 }
