@@ -149,7 +149,7 @@ document.addEventListener('startCardGame', () => {
             function restartGame() {
                 acceptedCards.value = [];
                 showFortune.value = false;
-                fortunes.value = {};
+                // fortunes.value = {};
                 currentCardIndex.value = 0;
                 shuffle(cards.value); // shuffle cards again
             }
